@@ -144,7 +144,7 @@ sound.paused {
   opacity: 0.25;
 }
 
-#myBtn {
+.toTop {
   all: unset;
   position: fixed;
   bottom: 20px;
@@ -155,6 +155,6 @@ sound.paused {
   font-size: 22px;
 }
 
-#myBtn:hover {
+.toTop:hover {
   color: #555;
 }
