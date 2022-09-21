@@ -1,0 +1,160 @@
+:root {
+  --index: calc(1vw + 1vh);
+  --gutter: 30px;
+  --side-small: 26;
+  --side-big: 36;
+  --depth: 4400px;
+  --transition: 0.75s cubic-bezier(0.075, 0.5, 0, 1);
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 100;
+  text-transform: uppercase;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans',
+    'Helvetica Neue', sans-serif;
+  background-color: #000;
+  color: #fff;
+  font-size: calc(var(--index) * 0.8);
+  line-height: 1.7;
+  height: var(--depth);
+  font-weight: 300;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  perspective: 1500px;
+}
+
+.gallery {
+  height: 100%;
+  transform-style: preserve-3d;
+}
+
+.frame {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition), opacity 1s ease;
+  will-change: transform;
+  transform-style: preserve-3d;
+}
+
+.frame h1 {
+  text-align: center;
+  font-size: calc(var(--index) * 3);
+  line-height: 1.2;
+  width: min-content;
+}
+
+.frame__media {
+  position: relative;
+  width: calc(var(--index) * var(--side-small));
+  height: calc(var(--index) * var(--side-big));
+}
+
+.frame__media--left {
+  right: calc(var(--side-small) / 2 * var(--index) + var(--gutter));
+}
+
+.frame__media--right {
+  left: calc(var(--side-small) / 2 * var(--index) + var(--gutter));
+}
+
+.frame__bg {
+  background-color: rgb(0, 0, 0, 0.9);
+}
+
+video.frame__media {
+  width: calc(var(--index) * var(--side-big));
+  height: calc(var(--index) * var(--side-small));
+}
+
+video.frame__media--left {
+  right: calc(var(--side-big) / 2 * var(--index) + var(--gutter));
+}
+
+video.frame__media--right {
+  left: calc(var(--side-big) / 2 * var(--index) + var(--gutter));
+}
+
+.text-right > * {
+  position: relative;
+  left: 18vw;
+}
+
+.text-left > * {
+  position: relative;
+  right: 18vw;
+}
+
+.frame h2 {
+  font-size: calc(var(--index) * 3);
+}
+
+.frame p {
+  max-width: 30vw;
+  margin-top: 3vh;
+}
+
+.sound {
+  position: fixed;
+  bottom: 5vh;
+  right: 5vw;
+  cursor: pointer;
+  width: 24px;
+  transition: 0.25s ease;
+}
+
+sound.paused {
+  opacity: 0.25;
+}
+
+#myBtn {
+  all: unset;
+  position: fixed;
+  bottom: 20px;
+  left: 30px;
+  z-index: 99;
+  color: white;
+  cursor: pointer;
+  font-size: 22px;
+}
+
+#myBtn:hover {
+  color: #555;
+}
